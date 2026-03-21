@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import {
   ClerkProvider,
   
@@ -6,6 +7,18 @@ import {
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+const customLabels = {
+  esUs: {
+    signIn: {
+      start: {
+        title: 'Sign in to Instagram Account', // Changes the Sign In modal title
+        subtitle: 'Welcome back!',
+      },
+    },
+  },
+};
+
 
 
 const geistSans = Geist({
@@ -29,13 +42,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider  >
       <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+        lang="en" suppressHydrationWarning
+       
       >
-        <body >
-       {children}
+        <body  className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+          <ThemeProvider 
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+     
         </body>
       </html>
     </ClerkProvider>

@@ -2,6 +2,8 @@
 "use client"
 import { UserButton, useUser } from '@clerk/nextjs';
 import Link from 'next/link';
+import { ModeToggle } from './mode-toggle';
+import Image from 'next/image';
 
 type variant="primary"|"secondary"
 type linkTypes={
@@ -36,9 +38,10 @@ const variants:Record<variant, string>={
 const Navbar = () => {
     const {user,isSignedIn}=useUser()
   return (
-    <div className='p-5 border-b border-neutral-100 flex items-center gap-2 justify-between shadow-md'>
-      <div className="text-xl font-bold text-neutral-500">Clerk Authentication</div>  
-    {!isSignedIn?(  <div className='flex items-center gap-2'>
+    <div className='p-2 border-b-2  border-neutral-200 flex gap-2 justify-between top-0 sticky-top  '>
+      <div className="text-xl font-bold text-neutral-500 flex gap-4 items-center"><span><Image src="/logo.png" alt="logo" width={80} height={80}/></span>Blogging and sunrise</div> 
+      <div className='justify-end flex gap-4'>
+{!isSignedIn?(  <div className='flex items-center gap-2'>
         {links.map((link:linkTypes)=>(
             <Link key={link.id} href={link.path} className={`${baseStyles} ${variants[link.variant]}`}>{link.text}</Link>
 
@@ -46,18 +49,22 @@ const Navbar = () => {
 
         )}
       </div>):(
-      <div className="items-center gap-2 flex">
-        <div className='text-semibold text-neutral-400 text-sm'>{user?.fullName}</div>
+      <div className="items-end gap-2 flex">
+        <div className='text-semibold text-neutral-500 text-md capitalize'>{user?.fullName}</div>
         <UserButton appearance={{
             elements:{
                 avatarBox:{
-                    height:36,
-                    width:36
+                    height:30,
+                    width:30
                 }
             }
         }}/>
       </div>)
 }
+<div><ModeToggle/></div>
+        </div> 
+    
+
       </div>
   )
 }
