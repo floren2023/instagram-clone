@@ -1,7 +1,10 @@
+@layer theme, base, clerk, components, utilities;
 @import "tailwindcss";
 
+
+
 :root {
-  --background: #ffffff;
+  --background: #e3e0dc;
   --foreground: #171717;
 }
 
@@ -24,3 +27,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
