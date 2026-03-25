@@ -1,12 +1,11 @@
+import HomePage from "@/components/home";
 
 
 export default function Home() {
   return (
-    <div className="flex flex-row justify-between mx-4">HOME PAGE
+    <div className="w-full flex  justify-between mx-4">
+      <HomePage/>
      
-
-
-  
     
     
     </div>

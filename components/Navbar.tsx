@@ -1,6 +1,7 @@
 
 "use client"
-import { UserButton, useUser } from '@clerk/nextjs';
+import {  useUser } from '@clerk/nextjs';
+
 import Link from 'next/link';
 import { ModeToggle } from './mode-toggle';
 import Image from 'next/image';
@@ -20,16 +21,16 @@ const links:linkTypes[]=[
         text:" Sign In",
         variant:"primary",
     },
-    {   
+    /* {   
         id:2,
         path:"/sign-up",
         text:" Sign Up",
         variant:"secondary",
-    },
+    }, */
 ]
-const baseStyles="boder px-4 py-1 rounded-md cursor-pointer"
+const baseStyles="border px-4 py-1 rounded-md cursor-pointer"
 const variants:Record<variant, string>={
-    primary:"bg-black text-white hover:bg-neutral-800 transition",
+    primary:"bg-neutral-200 text-red-600 hover:bg-neutral-500 transition",
     secondary:"hover:bg-neutral-400 text-neutral-800 transition hover:text-white bg-white border-1 border-neutral-900"
 
 
@@ -38,34 +39,29 @@ const variants:Record<variant, string>={
 const Navbar = () => {
     const {user,isSignedIn}=useUser()
   return (
-    <div className='p-2 border-b-2  border-neutral-200 flex gap-2 justify-between top-0 sticky-top  '>
-      <div className="text-xl font-bold text-neutral-500 flex gap-4 items-center"><span><Image src="/logo.png" alt="logo" width={80} height={80}/></span>Blogging and sunrise</div> 
+    <div className='w-full p-2 border-b-2  border-neutral-200 flex gap-2 justify-between top-0 sticky z-50  '>
+         <div><Image src="/logo.png" alt="logo" width={100} height={100}/></div >
+         <div className="text-5xl font-bold flex gap-4   font-[dancing_script] text-red-400 items-center">
+       Blogging and sunrise</div> 
       <div className='justify-end flex gap-4'>
-{!isSignedIn?(  <div className='flex items-center gap-2'>
+      
+{!isSignedIn&&(  <div className='w-full flex gap-2 items-center justify-between '>
+   
+    
         {links.map((link:linkTypes)=>(
             <Link key={link.id} href={link.path} className={`${baseStyles} ${variants[link.variant]}`}>{link.text}</Link>
 
         )
 
         )}
-      </div>):(
-      <div className="items-end gap-2 flex">
-        <div className='text-semibold text-neutral-500 text-md capitalize'>{user?.fullName}</div>
-        <UserButton appearance={{
-            elements:{
-                avatarBox:{
-                    height:30,
-                    width:30
-                }
-            }
-        }}/>
+        
       </div>)
 }
-<div><ModeToggle/></div>
+<div className='mr-4'><ModeToggle/></div>
         </div> 
-    
+    </div>
 
-      </div>
+     
   )
 }
 
