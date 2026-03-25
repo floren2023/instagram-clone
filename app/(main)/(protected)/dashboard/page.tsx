@@ -3,9 +3,10 @@ import { UserButton, useUser } from "@clerk/nextjs";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ChevronLeftCircle, Cog } from "lucide-react";
-
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { redirect } from "next/navigation";
+import Posts from "@/components/posts";
+import { LuSquareMenu } from "react-icons/lu";
+
 
 const page = () => {
   const { user, isSignedIn } = useUser();
@@ -14,7 +15,7 @@ const page = () => {
       <SidebarProvider>
         <AppSidebar />
         <main className="w-full flex justify-between pt-4 gap-2 ">
-          <SidebarTrigger />
+          <SidebarTrigger className="sr-only"><LuSquareMenu /></SidebarTrigger>
 <div className="w-full flex flex-col gap-10">
 
     <div className="w-full text-semibold text-neutral-500 text-md capitalize pt-4 items-center">
@@ -70,11 +71,7 @@ const page = () => {
             </div>
              <section >
             {/* galeria imagenes */}
-            <div className="flex gap-4 mt-10 justify-center text-center">
-            <div className="text-center text-neutral-700 font-medium"> Posts </div>
-            <div> Highlights </div>
-
-            </div>
+             <Posts/>
           </section>
           </div>
          
@@ -83,9 +80,11 @@ const page = () => {
         </main>
       </SidebarProvider>
     );
-  } else {
+  } 
+  //wait until
+  /* else {
     redirect("/not-authorized")
-  }
+  } */
 };
 
 export default page;
