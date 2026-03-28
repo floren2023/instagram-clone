@@ -13,6 +13,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 
 
+
 const interSans = Inter({
   variable: "--font-inter-sans",
   subsets: ["latin"],
@@ -26,11 +27,12 @@ export const metadata: Metadata = {
   description: "Blog by Vakar Florenta",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ClerkProvider  >
       <html
@@ -39,17 +41,18 @@ export default function RootLayout({
       >
         
         <body  className={`${interSans.variable} ${poppins.variable} ${dancing_script.variable} h-full w-full antialiased`}>
-          <ThemeProvider 
+         <ThemeProvider 
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          >
+          >  
+         
             {children}
-          </ThemeProvider>
+           </ThemeProvider>  
      
         </body>
-       
+         
       </html>
        </ClerkProvider>
     

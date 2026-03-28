@@ -1,42 +1,49 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardAction,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
+import { Photo } from "@/types/pexels-zod";
 
-
-const PostCard = () => {
-  return (
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
-      <img
-        src="https://avatar.vercel.sh/shadcn1"
-        alt="Event cover"
-        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
-      />
-      <CardAction className="text-end justify-end w-full pl-4">
-          <Badge variant="secondary" >Featured</Badge>
-        </CardAction>
-      <CardHeader>
-        
-        <CardTitle className="w-full px-2 text-red-800 font-medium">Design systems meetup</CardTitle>
-           </CardHeader>
-        <CardDescription className="text-sm text-wrap w-full py-2 px-4">
+const PostCard = ({ photo }: { photo: Photo }) => {
+  return (    
+    <div className="grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-2  p-6 lg:gap-6 md:gap-4 bg-neutral-100 text-neutral-600 m-auto rounded-sm  items-center dark:bg-neutral-800 dark:text-white w-full ">
+        <div className=" aspect-video rounded-sm  items-center bg-red-400  " >
+        <Image
+          src={photo.src.medium}
+          alt={photo.alt}  height={photo.height} width={photo.width}
+          className=" aspect-video  object-cover brightness-60 rounded-sm "
+        />
+      </div>
+       <div className=" items-center w-max-sm p-6">
+        <div className="text-end justify-end w-full ">
+          <Badge variant="secondary">Featured</Badge>
+        </div>
+        <div className="items-center">
+          <h1 className="w-full  text-red-800 font-bold mb-2 font-[poppins]">
+            {photo.photographer}
+          </h1>
+        </div>
+              <div className="text-sm text-wrap w-full  font-[poppins] ">
           A practical talk on component APIs, accessibility, and shipping
           faster.
-        </CardDescription>
-   
-      <CardFooter>
-        <Button className="w-full">View Event</Button>
-      </CardFooter>
-    </Card>
-  )
-}
+        </div>
 
-export default PostCard
+        <div className="mx-auto justify-start">
+          <Button className="mt-4 bg-neutral-400 dark:bg-red-800 dark:text-white  w-[200] font-[poppins] text-center ">View Post</Button>
+        </div>
+    </div>
+    </div>
+      
+
+    
+  );
+};
+
+export default PostCard;
+
+
+   
+
+     
+       
+     

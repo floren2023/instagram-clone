@@ -85,9 +85,9 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background:oklch(20.5% 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card:oklch(37.1% 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -139,6 +139,6 @@
 .shadow1{
   border-radius: 21px;
 background: #e0e0e0;
-box-shadow:  16px 16px 50px #cacaca,
-             -16px -16px 50px #f6f6f6;
+box-shadow:  12px 12px 20px #cacaca,
+             -14px -14px 20px #f6f6f6;
 }

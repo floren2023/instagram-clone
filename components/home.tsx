@@ -1,30 +1,18 @@
+import { currentUser } from "@clerk/nextjs/server";
+import Navbar from "./Navbar";
+import { redirect } from "next/navigation";
+import { ModeToggle } from "./mode-toggle";
 
-"use client"
-import {  useUser } from '@clerk/nextjs'
+const HomePage = async () => {
+  const user = await currentUser();
+  if (user) redirect("/dashboard");
 
-import Navbar from './Navbar'
-import { redirect } from 'next/navigation'
+  return <div className="flex w-full justify-between px-10">
+    <Navbar />
+    <div><ModeToggle/></div>
 
-const HomePage = () => {
-     const {user,isSignedIn}=useUser()
-     if(isSignedIn){
-        redirect("/dashboard")
-     }
-  return (
-     
-    <>
-      {!isSignedIn&&(
-            
-            <Navbar/>
-           
-            
-
-            
-        )}
-
-    </>
+  </div>
   
-  )    
-}
+};
 
-export default HomePage
+export default HomePage;
