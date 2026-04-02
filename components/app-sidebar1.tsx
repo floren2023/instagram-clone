@@ -12,17 +12,16 @@ import { Home, Search } from "lucide-react";
 
 import Link from "next/link";
 import { BsCameraReels } from "react-icons/bs";
-import { CiCircleMore } from "react-icons/ci";
-import { CgAdd, CgProfile } from "react-icons/cg";
+
 import { FiMessageCircle } from "react-icons/fi";
-import { IoMdNotificationsOutline } from "react-icons/io";
+
 
 
 import { PiBrowsers } from "react-icons/pi";
 import Logo from "./Logo";
-import ButtonSignUp from "./ButtonSignUp";
 
-export function AppSidebar({email}:{email:string|undefined}) {
+
+export function AppSidebar1() {
   return (
     <Sidebar>
       <SidebarHeader>
@@ -57,36 +56,17 @@ export function AppSidebar({email}:{email:string|undefined}) {
           <SidebarMenuItem className="flex gap-2 pt-4 items-center hover:text-rose-800">
             <Link href="#" className="flex gap-2">
               <FiMessageCircle className="w-4 h-4 align-items-center hover:text-rose-800" />
-              <span>Messages</span>
+              <span>Posts</span>
             </Link>
           </SidebarMenuItem>
-          <SidebarMenuItem className="flex gap-2 pt-4 items-center hover:text-rose-800">
-            <Link href="#" className="flex gap-2">
-              <IoMdNotificationsOutline className="w-4 h-4 align-items-center hover:text-rose-800" />
-              <span>Notifications</span>
-            </Link>
-          </SidebarMenuItem>
-          <SidebarMenuItem className="flex gap-2 pt-4 items-center hover:text-rose-800">
-            <Link href="/settings" className="flex gap-2">
-              <CgProfile className="w-4 h-4 align-items-center hover:text-rose-800" />
-              <span>Profile</span>
-            </Link>
-          </SidebarMenuItem>
-          <SidebarMenuItem className="flex gap-2 pt-4 items-center hover:text-rose-800">
-            <Link href="/create" className="flex gap-2">
-              <CgAdd className="w-4 h-4 align-items-center hover:text-rose-800" />
-              <span>Create</span>
-            </Link>
-          </SidebarMenuItem>
-          <SidebarMenuItem className="flex gap-2 pt-4 items-center hover:text-rose-800">
-            <CiCircleMore className="w-4 h-4 align-items-center hover:text-rose-800 font-medium" />
-            <span>More</span>
-          </SidebarMenuItem>
+         
+            
+         
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter >
        
-       <div className="  mb-2" ><ButtonSignUp email={email}/></div>
+      
         <SidebarTrigger />
       </SidebarFooter>
     </Sidebar>
