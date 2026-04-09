@@ -11,6 +11,8 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import Link from "next/link";
+import { AllUsers } from "@/app/actions/posts";
+
 
 const header = [
   {
@@ -38,9 +40,13 @@ const header = [
 
 const page = async () => {
   const user = await currentUser();
+  
+  const users=await AllUsers()
+  console.log(users)
   if (!user) {
     return <div> no authorizado</div>;
   } else {
+    const posts=users[0].posts
     return (
       <SidebarProvider>
         <AppSidebar email={user.primaryEmailAddress?.emailAddress}/>
@@ -118,7 +124,10 @@ const page = async () => {
         </Tabs>
       </div>
                 {/* galeria posts */}
-                <Posts />
+              
+                <Posts posts={posts}/>
+                
+                
               </div>
             </div>
          

@@ -142,3 +142,12 @@ background: #e0e0e0;
 box-shadow:  12px 12px 20px #cacaca,
              -14px -14px 20px #f6f6f6;
 }
+input:focus {
+  outline: 2px solid red; /* O el color que desees */
+  outline-offset: 2px; /* Opcional: espacio entre borde y input */
+}
+
+/* Para eliminarla por completo (no recomendado por accesibilidad) */
+input:focus {
+  outline: none;
+}

@@ -1,3 +1,5 @@
+
+"use server"
 import { currentUser } from "@clerk/nextjs/server";
 import Navbar from "@/components/Navbar";
 import { redirect } from "next/navigation";
@@ -6,11 +8,16 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar1 } from "@/components/app-sidebar1";
 
 import Posts from "@/components/posts";
+import {prisma} from "@/lib/prisma"
+import { AllUsers } from "../actions/posts";
 
+
+ 
 const HomePage = async () => {
   const user = await currentUser();
   if (user) redirect("/dashboard");
 
+const users=await AllUsers()
   return (
     <SidebarProvider>
       <AppSidebar1 />
@@ -23,7 +30,7 @@ const HomePage = async () => {
           </div>
         </div>
 
-        <Posts />
+          {users.length}
       </main>
     </SidebarProvider>
   );

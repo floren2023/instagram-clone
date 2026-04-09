@@ -1,16 +1,26 @@
 "use client"
-import App from "./App"
-import { TanStackDevtools } from '@tanstack/react-devtools'
-import { formDevtoolsPlugin } from '@tanstack/react-form-devtools'
+
+
+
+import { useUser } from '@clerk/nextjs'
+import { PostForm } from './CreatePost';
+
 
 const page = () => {
+   const { isLoaded, isSignedIn, user } = useUser();
+  
+    if (!isLoaded) {
+      return <div>Cargando...</div>;
+    }
+  
+    if (!isSignedIn) {
+      return <div>No has iniciado sesión.</div>;
+    }
+  
   return (
-    <div> <App />
+    <div className="mx-auto mt-10 justify-center items-center"> <PostForm />
 
-    <TanStackDevtools
-      config={{ hideUntilHover: true }}
-      plugins={[formDevtoolsPlugin()]}
-    />
+   
 
 
     </div>

@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.pexels.com', // Replace with authorized hostname
+        hostname: 'images.com', // Replace with authorized hostname
         port: '',
         pathname: '/**', // Customize path as needed
       },

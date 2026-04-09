@@ -1,0 +1,35 @@
+ <div className=" aspect-video rounded-sm  items-center bg-rose-400  ">
+      {/*   <Image
+          src={photo.src.medium}
+          alt={photo.alt}
+          height={photo.height}
+          width={photo.width}
+          loading="eager"
+          className=" aspect-video  object-cover brightness-60 rounded-sm "
+        /> */}
+      </div>
+      <div className=" items-center w-max-sm p-4">
+        <div className="text-end justify-end w-full ">
+          <Feature />
+        </div>
+        <div className="items-center">
+
+          <h1 className="w-full  text-rose-800 font-bold mb-2 font-[poppins] text-xl">
+            {post.title}
+          </h1>
+          <p>{post.userId}</p>
+        </div>
+        <div className="text-sm text-wrap w-full  font-[poppins] ">
+         {post.content} <span>{post.createdAt.getDate()}</span>
+        </div>
+
+        <div className=" justify-center flex gap-2 mt-4">
+          <Button className=" bg-neutral-400 dark:bg-rose-800 dark:text-white  w-[150] font-[poppins] text-center ">
+            View Post
+          </Button>
+
+          <Button className=" bg-neutral-300 text-rose-800 dark:bg-neutral-800 dark:text-rose-600  w-[150] font-[poppins] text-center ">
+            Follow
+          </Button>
+        </div>
+      </div>

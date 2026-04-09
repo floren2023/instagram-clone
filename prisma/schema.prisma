@@ -17,19 +17,20 @@ datasource db {
 
 
 model User { 
-  id    String @unique
+  id    String @id @default(cuid())
   email String  @unique
   name  String?
-  posts Post[]
+  createdAt DateTime @default(now())
+  posts Post[] 
 } 
 
 model Post { 
   id        Int     @id @default(autoincrement()) 
   userId    String  
   title     String
-  content   String?
-  data      DateTime
+  content   String
+  createdAt DateTime @default(now())
   author    User    @relation(fields: [userId], references: [id]) 
-  likes     Int 
-  imageUrl String
+  likes     Int? 
+  imageUrl String?
 } 
