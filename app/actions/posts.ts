@@ -16,7 +16,7 @@ export async function AllUsers() {
   return allUsers
 }
 
-AllUsers()
+/* AllUsers()
   .then(async () => {
     await prisma.$disconnect();
   })
@@ -24,4 +24,4 @@ AllUsers()
     console.error(e);
     await prisma.$disconnect();
     process.exit(1);
-  });
+  }); */

@@ -46,10 +46,10 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          >  
+          >   
          
             {children}
-           </ThemeProvider>  
+            </ThemeProvider>   
      
         </body>
          
