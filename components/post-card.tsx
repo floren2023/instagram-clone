@@ -13,7 +13,7 @@ const url= `https://res.cloudinary.com/${nameCloud}/image/upload/${imageUrl}`
   return url
 }
 
-const PostCard = ({ post,userName }: { post: Post ,userName:string}) => {
+const PostCard = ({ post,userName }: { post: Post ,userName:string|null|undefined}) => {
   //make url from post.imageUrl
   
 
@@ -21,7 +21,7 @@ const PostCard = ({ post,userName }: { post: Post ,userName:string}) => {
   return (
   <div className="w-full flex gap-10 mx-20">
     <div className=" aspect-video rounded-sm  items-center bg-rose-400  ">
-    {post.imageUrl&&
+    {url&&
     
          <Image
           src={url}
