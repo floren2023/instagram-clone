@@ -1,9 +1,11 @@
 
-
+"use client"
 import { Post } from "@/types/users";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { BsHandThumbsDown, BsHandThumbsDownFill, BsHandThumbsUp, BsHandThumbsUpFill } from "react-icons/bs";
+import { TfiCommentsSmiley } from "react-icons/tfi";
+import { useState } from "react";
 
 function makeUrl(imageUrl: string |null|undefined) {
   if(imageUrl===null ||imageUrl===''||imageUrl===undefined)
@@ -13,9 +15,13 @@ const url= `https://res.cloudinary.com/${nameCloud}/image/upload/${imageUrl}`
   return url
 }
 
+
+
 const PostCard = ({ post,userName }: { post: Post ,userName:string|null|undefined}) => {
   //make url from post.imageUrl
-  
+  const [like, setLike]=useState(false)
+   const [unlike, setUnlike]=useState(false)
+   const [comment,setComment]=useState(false)
 
   const url=makeUrl(post.imageUrl)
   return (
@@ -54,12 +60,29 @@ const PostCard = ({ post,userName }: { post: Post ,userName:string|null|undefine
             <span className="ml-4 text-sm text-start text-rose-700 italic">{post.createdAt.toLocaleDateString()}</span>
          </div>
          <div className="flex gap-2  mt-4 flex-start ml-20">
-          <BsHandThumbsUp className="w-6 h-6 text-orange-400"/><BsHandThumbsUpFill className="w-6 h-6 text-rose-400"/><BsHandThumbsDown className="w-6 h-6 text-slate-400"/><BsHandThumbsDownFill className="w-6 h-6 text-gris-200"/></div>
+          <Button onClick={()=>setLike(true)}>
+            {userName&&like?
+              <BsHandThumbsUpFill className="w-6 h-6 text-orange-400"/>:
+              <BsHandThumbsUp className="w-6 h-6 text-rose-400"/>
+            }
+                     
+            </Button>
+ <Button onClick={()=>setUnlike(true)}>
+            {userName&&unlike?
+          <BsHandThumbsDownFill className="w-6 h-6 text-slate-400"/>:
+           <BsHandThumbsDown className="w-6 h-6 text-gris-200"/>
+            } 
+           </Button>
+{/* //abre una ventana de comment */}
+           <Button onClick={()=>setComment(true)}>
+            <TfiCommentsSmiley className="w-6 h-6 text-green-400"/>
+           </Button>
+          </div>
         
         </div>
 
         <div className=" justify-center flex gap-2 mt-4">
-          <Button className=" bg-neutral-100 text-black dark:bg-rose-800 dark:text-white  w-50 font-[poppins] text-center ">
+          <Button className=" bg-neutral-200 text-black dark:bg-rose-800 dark:text-white  w-40 font-[poppins] text-center ">
             View Post
           </Button>
 
