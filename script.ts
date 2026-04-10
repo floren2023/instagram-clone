@@ -4,27 +4,30 @@ import { prisma } from "./lib/prisma";
 
 async function main() {
   // Create a new user with a post
-  /*  const user = await prisma.user.create({
+   /*  const user = await prisma.user.create({
     data: {
         id:"12349",
-      name: "Mami",
-      email: "mami@prisma.io",
+      name: "Vahar florenta",
+      email: "floren2017vvv@gmail.com",
+      createdAt:new Date(),
       posts: {
         create: {
           title: "Hello World",
           content: "This is my first post!",
           createdAt:new Date(),
           likes:0,
-          imageUrl:"https://www.pexels.com/photo/fresh-lemons-and-mint-sprigs-above-zero-waste-bag-7195133/"
+          unlikes:0,
+          imageUrl:"kas5ayyu0xdvfctvvsbf"
         },
+        
       },
     },
     include: {
       posts: true,
     },
   });
-  console.log("Created user:", user); */
-
+  console.log("Created user:", user); 
+ */
   // Fetch all users with their posts
   const allUsers = await prisma.user.findMany({
     include: {

@@ -40,7 +40,7 @@ const page = async () => {
   const user = await currentUser();
 
   const users = await AllUsers();
-  console.log(users);
+
   if (!user) {
     return <div> no authorizado</div>;
   } else {

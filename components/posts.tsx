@@ -4,7 +4,7 @@ import PostCard from "./post-card";
 
 
 
-const Posts = async ({ posts,userName }: { posts: Post[],userName:string }) => {
+const Posts = async ({ posts,userName }: { posts: Post[],userName:string|null|undefined }) => {
   if (!posts) return;
   <h1 className="m-4 text-2xl font-bold">No posts found</h1>;
 

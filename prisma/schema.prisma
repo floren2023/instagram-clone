@@ -6,31 +6,47 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
-  
 }
 
 datasource db {
   provider = "postgresql"
 }
 
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String?
+  createdAt DateTime  @default(now())
+  posts     Post[]
+  follow    Follow[]
+  comments  Comment[]
+}
 
-
-
-model User { 
-  id    String @id @default(cuid())
-  email String  @unique
-  name  String?
-  createdAt DateTime @default(now())
-  posts Post[] 
-} 
-
-model Post { 
-  id        Int     @id @default(autoincrement()) 
-  userId    String  
+model Post {
+  id        Int       @id @default(autoincrement())
+  userId    String
   title     String
   content   String
+  createdAt DateTime  @default(now())
+  author    User      @relation(fields: [userId], references: [id])
+  comments  Comment[]
+  likes     Int?
+  unlikes   Int?
+  imageUrl  String?
+}
+
+model Follow {
+  id        Int    @id @default(autoincrement())
+  userId    String
+  following User   @relation(fields: [userId], references: [id])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  postId    Int
+  userId    String
+  comment   String?
   createdAt DateTime @default(now())
-  author    User    @relation(fields: [userId], references: [id]) 
-  likes     Int? 
-  imageUrl String?
-} 
+  post      Post     @relation(fields: [id], references: [id])
+  author    User     @relation(fields: [userId], references: [id])
+}
