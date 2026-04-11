@@ -12,6 +12,7 @@ import Posts from "@/components/posts";
 import { AllUsers } from "../actions/posts";
 
 
+
  
 const HomePage = async () => {
   const user = await currentUser();
@@ -21,6 +22,7 @@ const HomePage = async () => {
 const users=await AllUsers()
  const posts = users[0].posts;
   return (
+    <>
     <SidebarProvider>
       <AppSidebar1 />
       <main className="w-full   ">
@@ -34,6 +36,9 @@ const users=await AllUsers()
         
       </main>
     </SidebarProvider>
+    
+    </>
+    
   );
 };
 
