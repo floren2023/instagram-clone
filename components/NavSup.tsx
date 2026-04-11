@@ -15,7 +15,7 @@ const links: linkTypes[] = [
     variant: "primary",
   },
 ];
-const baseStyles = "border px-4 py-1 rounded-full cursor-pointer text-sm font-[poppins] text-center w-24 mt-4 mr-4 h-8";
+const baseStyles = "border px-4 py-1 rounded-full cursor-pointer text-sm font-[poppins] text-center w-24  mr-4 h-8";
 const variants: Record<variant, string> = {
   primary: "bg-rose-900 text-white hover:bg-rose-700 transition",
   secondary:
@@ -24,7 +24,8 @@ const variants: Record<variant, string> = {
 
 const NavSup = () => {
   return (
-    <div className="flex gap-2 pr-10" >
+    <div className="flex flex-end gap-2 px-2" >
+     
       <div className="flex flex-row gap-2 mt-10">
           {links.map((link: linkTypes) => (
         <Link
@@ -36,8 +37,11 @@ const NavSup = () => {
         </Link>
        
       ))}
+     
      </div>
-<div><ModeToggle/></div> 
+      <div ><ModeToggle/></div> 
+      
+
     </div>
     
    

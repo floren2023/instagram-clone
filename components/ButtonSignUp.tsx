@@ -1,25 +1,26 @@
 import { UserButton } from "@clerk/nextjs";
 
-const ButtonSignUp = ({email}:{email:string|undefined}) => {
+const ButtonSignUp = () => {
   
   return (
     <div className="flex  gap-2 p-2">
-        <div className=" ">
-             <UserButton 
+        <div className="text-red-400 ">
+             <UserButton showName
                       appearance={{
                         elements: {
                           avatarBox: {
                             height: 30,
                             width: 30,
                           },
+                        
                         },
                       }}
                     />
         </div>
                    
-                    <div className="text-rose-600 text-xs wrap w-20">
+                   {/*  <div className="text-rose-600 text-xs wrap w-20">
                       {email}
-                    </div>
+                    </div> */}
                   </div>
 
 )

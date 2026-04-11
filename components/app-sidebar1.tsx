@@ -1,7 +1,7 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+
   SidebarGroup,
   SidebarHeader,
 
@@ -60,15 +60,13 @@ export function AppSidebar1() {
             </Link>
           </SidebarMenuItem>
          
-            
+            <SidebarMenuItem className="mt-40 list-none items-center " >
+                   <SidebarTrigger />Hide Menu
+           </SidebarMenuItem>
          
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter >
-       
       
-        <SidebarTrigger />
-      </SidebarFooter>
     </Sidebar>
   );
 }

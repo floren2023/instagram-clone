@@ -1,7 +1,7 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
+  
   SidebarGroup,
   SidebarHeader,
 
@@ -82,13 +82,18 @@ export function AppSidebar({email}:{email:string|undefined}) {
             <CiCircleMore className="w-4 h-4 align-items-center hover:text-rose-800 font-medium" />
             <span>More</span>
           </SidebarMenuItem>
-        </SidebarGroup>
-      </SidebarContent>
-      <SidebarFooter >
+            </SidebarGroup>
+          <SidebarMenuItem className="mt-20 list-none text-rose-800" >
+               <ButtonSignUp  />
        
-       <div className="  mb-2" ><ButtonSignUp email={email}/></div>
-        <SidebarTrigger />
-      </SidebarFooter>
+          </SidebarMenuItem>
+           <SidebarMenuItem className="mt-4 list-none items-center " >
+                   <SidebarTrigger />Hide Menu
+           </SidebarMenuItem>
+           
+      
+      </SidebarContent>
+     
     </Sidebar>
   );
 }

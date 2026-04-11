@@ -44,7 +44,7 @@ const page = async () => {
   if (!user) {
     return <div> no authorizado</div>;
   } else {
-    const posts = users[0].posts;
+   const posts = users[0].posts;
     return (
       <SidebarProvider>
         <AppSidebar email={user.primaryEmailAddress?.emailAddress} />
@@ -58,11 +58,11 @@ const page = async () => {
               </div>
             </div>
 
-            <div className="w-full  flex justify-center ">
-              <div className="flex lg:w-1/3 md:w-1/2 sm:w-full gap-2 p-4 items-center justify-center   ">
-                <div className=" items-center">
-                  <Avatar className="w-34 h-34  items-center  p-1 bg-linear-to-r from-neutral-100 to-neutral-400  ">
-                    <div className=" rounded-full items-center justify-center m-auto">
+            <div className="w-full  flex justify-center mx-auto ">
+              <div className="flex lg:w-1/3 md:w-1/2 sm:w-full gap-2 p-4 items-center justify-center mx-auto  ">
+                <div className=" items-center mx-auto justify-center ml-20">
+                  <Avatar className="w-34 h-34  items-center  p-1 bg-linear-to-r from-neutral-100 to-neutral-100 mx-auto ">
+                    <div className=" rounded-full items-center justify-center ">
                       <AvatarImage
                         src="/foto2.jpg"
                         alt="foto perfil"
@@ -122,7 +122,7 @@ const page = async () => {
               </div>
               {/* galeria posts */}
 
-              <Posts posts={posts} userName={user.fullName}/>
+               <Posts posts={posts} userName={user.fullName}/> 
             </div>
           </div>
         </main>

@@ -34,7 +34,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+     appearance={{
+     options: {
+      socialButtonsPlacement: 'bottom',
+       },
+  }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body
           className={`${interSans.variable} ${poppins.variable} ${dancing_script.variable} h-full w-full antialiased`}

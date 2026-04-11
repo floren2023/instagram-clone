@@ -25,12 +25,12 @@ const users=await AllUsers()
     <>
     <SidebarProvider>
       <AppSidebar1 />
-      <main className="w-full   ">
+      <main className="w-full  h-full items-center ">
         <Navbar />
 
         <div className="flex flex-col gap-10 pl-10">
          
-             <Posts posts={posts} userName=""/>
+              <Posts posts={posts} userName=""/> 
         </div>
 
         

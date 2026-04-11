@@ -8,22 +8,23 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 bg-linear-to-br from-gray-50 to-rose-50 font-[InterSans] text-gray-500">
-      <div className="mx-auto flex w-full items-center justify-between gap-3 px-4 py-2 max-md:flex-col sm:px-6 z-50 sm:py-2 md:gap-4 md:py-2 ">
-        <div className="flex items-center gap-5 whitespace-nowrap text-center justify-center">
-          <Link href="#">
-            <div className="text-xl text-pink-800 font-semibold font-[InterSans] pl-50  p-4">
+    <footer className="w-full  mt-10 bg-linear-to-br from-gray-50 to-rose-50 font-[InterSans] text-gray-500">
+      <div className=" mx-auto flex w-full items-center justify-between gap-3 px-4 py-2 max-md:flex-col sm:px-6 z-50 sm:py-2 md:gap-4 md:py-2 ">
+        <div className="lg:pl-50 md:pl-20 sm:pl-0 lg:w-1/2 sm:w-full grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 sm:text-center sm:items-center gap-5 whitespace-nowrap text-center sm:justify-center">
+        
+          <Link href="/">
+            <div className="text-xl text-pink-800 font-semibold font-[InterSans]  text-center p-4">
               P&S
             </div>
           </Link>
           <Link
             href="#"
-            className="opacity-80 transition-opacity duration-300 hover:opacity-100"
+            className="opacity-80 transition-opacity duration-300 hover:opacity-100 text-center"
           >
             About
           </Link>
           <Link
-            href="#"
+            href="/about"
             className="opacity-80 transition-opacity duration-300 hover:opacity-100"
           >
             Features
